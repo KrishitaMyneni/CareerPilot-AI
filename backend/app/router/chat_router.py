@@ -4,7 +4,7 @@ from pydantic import BaseModel
 from app.config import settings
 from app.services.intent_router import intent_router
 from app.services.prompt_builder import prompt_builder
-from app.services.ibm_client import ibm_client
+from app.services.langflow_client import langflow_client
 from app.services.profile_service import profile_service
 from app.services.conversation_service import conversation_service
 
@@ -56,7 +56,7 @@ async def chat(request: ChatRequest, background_tasks: BackgroundTasks):
             request.user_id, request.session_id, "user", request.message
         )
 
-        ai_response = await ibm_client.generate_text(
+        ai_response = await langflow_client.generate_text(
             prompt, max_tokens=settings.IBM_MAX_TOKENS_CHAT
         )
 

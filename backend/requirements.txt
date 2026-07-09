@@ -8,6 +8,7 @@ pydantic
 pydantic-settings
 python-multipart
 requests
+httpx
 PyPDF2
 python-docx
 ibm-watsonx-ai

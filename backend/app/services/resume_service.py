@@ -2,7 +2,7 @@ import asyncio
 from typing import Dict, Any, Optional
 from app.config import settings
 from app.models.resume import ResumeAnalysis
-from app.services.ibm_client import ibm_client
+from app.services.langflow_client import langflow_client
 from app.services.prompt_builder import prompt_builder, MAX_RESUME_CHARS
 from app.agents.resume_agent import resume_agent
 from app.utils.helpers import extract_text_from_pdf, extract_text_from_docx
@@ -38,7 +38,7 @@ Resume text:
 {resume_text}"""
         )
 
-        analysis_response = await ibm_client.generate_text(
+        analysis_response = await langflow_client.generate_text(
             prompt, max_tokens=settings.IBM_MAX_TOKENS_ANALYSIS
         )
 

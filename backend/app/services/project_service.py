@@ -1,7 +1,7 @@
 from typing import Dict, Any, Optional
 from app.config import settings
 from app.models.project import ProjectRecommendation
-from app.services.ibm_client import ibm_client
+from app.services.langflow_client import langflow_client
 from app.services.prompt_builder import prompt_builder
 from app.services.profile_service import profile_service
 from app.agents.project_agent import project_agent
@@ -20,7 +20,7 @@ class ProjectService:
             student_profile=student_profile
         )
 
-        projects_response = await ibm_client.generate_text(
+        projects_response = await langflow_client.generate_text(
             prompt, max_tokens=settings.IBM_MAX_TOKENS_ANALYSIS
         )
 

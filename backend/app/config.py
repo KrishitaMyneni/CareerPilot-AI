@@ -12,5 +12,9 @@ class Settings(BaseSettings):
     IBM_MAX_TOKENS_CHAT: int = 700
     IBM_MAX_TOKENS_ANALYSIS: int = 1200
 
+    LANGFLOW_URL: str = "http://localhost:7860"
+    LANGFLOW_FLOW_ID: str
+    LANGFLOW_API_KEY: str = ""
+
 
 settings = Settings()
